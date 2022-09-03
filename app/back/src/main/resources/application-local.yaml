@@ -9,3 +9,4 @@ management:
   info.git.mode: full
   server:
     port: 8083
+    hostname: localhost
