@@ -1,4 +1,4 @@
-# This workflow uses actions that are not certified by GitHub
+# This workflow uses actions that are not certified by Github
 # They are provided by a third-party and are governed by 
 # separate terms of service, privacy policy, and support
 # documentation
@@ -56,35 +56,38 @@ jobs:
           push: true
           tags: pattanaik007/reader:latest
       
-      - name: Deploy
+      - name: 'Deploy'
         uses: bitovi/github-actions-deploy-eks-helm@v1.0.3
         with:
+          exec: helm upgrade --install front-app ./springboot -f front-values.yaml
           aws-access-key-id: ${{ secrets.AWS_SECRET }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: ap-south-1
-          cluster-name: ekd-Devops07
+          cluster-name: eks-Devops07
           chart-path: springboot/
           config-files: front-values.yaml
           name: front
           namespace: 'default'
-      - name: Deploy
+      - name: 'Deploy'
         uses: bitovi/github-actions-deploy-eks-helm@v1.0.3
         with:
+          exec: helm upgrade --install back-app ./springboot -f back-values.yaml
           aws-access-key-id: ${{ secrets.AWS_SECRET }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: ap-south-1
-          cluster-name: ekd-Devops07
+          cluster-name: eks-Devops07
           chart-path: springboot/
           config-files: back-values.yaml
           name: back
           namespace: 'default'
-      - name: Deploy
+      - name: 'Deploy'
         uses: bitovi/github-actions-deploy-eks-helm@v1.0.3
         with:
+          exec: helm upgrade --install reader-app ./springboot -f reader-values.yaml
           aws-access-key-id: ${{ secrets.AWS_SECRET }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: ap-south-1
-          cluster-name: ekd-Devops07
+          cluster-name: eks-Devops07
           chart-path: springboot/
           config-files: reader-values.yaml
           name: reader
