@@ -86,10 +86,10 @@ appconfig: |-
   # ################### Kafka ##############################
   # spring:
   #   kafka:
-  #     bootstrap-servers:  {{ kafka-bootstrap-goes here }}
-  #   datasource.url: jdbc:postgresql://localhost:5432/postgres
-  #   datasource.username: {{ username }}
-  #   datasource.password: {{ password }}
+  #     bootstrap-servers: "front-app-kafka-headless.default.svc.cluster.local:9093"
+  #   datasource.url: jdbc:postgresql://front-app-postgresql:5432/postgres
+  #   datasource.username: postgres
+  #   datasource.password: password
 
   # ################### Logging settings ###################
   # logging:
