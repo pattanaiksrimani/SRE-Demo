@@ -87,7 +87,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_SECRET }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: ap-south-1
-          cluster-name: eks-Devops07
+          cluster-name: eks-Devops07   
           chart-path: springboot/
           config-files: reader-values.yaml
           name: reader
